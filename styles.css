@@ -1,0 +1,43 @@
+/* ---------- Base style applied to *all* interactive elements ---------- */
+button:not(.no-3d),
+a[href]:not(.no-3d),
+input[type="button"]:not(.no-3d),
+input[type="submit"]:not(.no-3d),
+input[type="reset"]:not(.no-3d),
+[role="button"]:not(.no-3d),
+.three-d                      /* <— class we’ll add via JS for anything else */
+{
+  position: relative;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,.18);         /* slightly raised */
+}
+
+/* ---------- Hover: lift a little, grow the shadow ---------- */
+button:not(.no-3d):hover,
+a[href]:not(.no-3d):hover,
+input[type="button"]:not(.no-3d):hover,
+input[type="submit"]:not(.no-3d):hover,
+input[type="reset"]:not(.no-3d):hover,
+[role="button"]:not(.no-3d):hover,
+.three-d:hover
+{
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,.22);
+}
+
+/* ---------- Active / pressed: sink slightly, shadow collapses ---------- */
+button:not(.no-3d):active,
+a[href]:not(.no-3d):active,
+input[type="button"]:not(.no-3d):active,
+input[type="submit"]:not(.no-3d):active,
+input[type="reset"]:not(.no-3d):active,
+[role="button"]:not(.no-3d):active,
+.three-d:active
+{
+  transform: translateY(1px);
+  box-shadow:
+      0 1px 2px rgba(0,0,0,.28) inset,          /* pressed inner edge */
+      0 0 0 1px rgba(0,0,0,.04);               /* subtle outline     */
+}
+
